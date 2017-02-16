@@ -8,8 +8,11 @@ import {Car} from './car';
 })
 export class CarsComponent {
   cars: Car[] = CARS;
-  //selectedCar: Car;
+  selectedCar: Car;
 
+  onSelect(car: Car): void {
+    this.selectedCar = car;
+  }
 }
 
 const CARS: Car[] = [

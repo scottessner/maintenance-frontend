@@ -1,15 +1,12 @@
-<md-card *ngFor="let car of cars">
+<md-card *ngFor="let car of cars" (click)="onSelect(car)">
   <md-card-title>{{car.nickname}}</md-card-title>
   <md-card-subtitle>{{car.year}} {{car.make}} {{car.model}}</md-card-subtitle>
+  <md-card-content>
+    <div *ngIf="selectedCar === car">
+      <h4>Recent Readings</h4>
+      <fill-ups></fill-ups>
+    </div>
+  </md-card-content>
+
   <md-card-actions></md-card-actions>
 </md-card>
-
-<md-grid-list cols="3">
-  <md-grid-tile *ngFor="let car of cars">
-    <md-card class="car-card">
-      <md-card-title>{{car.nickname}}</md-card-title>
-      <md-card-subtitle>{{car.year}} {{car.make}} {{car.model}}</md-card-subtitle>
-      <md-card-actions></md-card-actions>
-    </md-card>
-  </md-grid-tile>
-</md-grid-list>

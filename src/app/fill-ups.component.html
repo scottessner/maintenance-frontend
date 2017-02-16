@@ -1,0 +1,17 @@
+<table>
+  <tr>
+    <th>Odometer</th>
+    <th>Distance</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Date</th>
+  </tr>
+  <tr *ngFor="let fillUp of fillUps">
+    <td>{{fillUp.odometer}}</td>
+    <td>{{fillUp.distance}}</td>
+    <td>{{fillUp.price}}</td>
+    <td>{{fillUp.quantity}}</td>
+    <td>{{fillUp.date | date:'longDate'}}</td>
+    <!--{{fillUp.economy()}}-->
+  </tr>
+</table>

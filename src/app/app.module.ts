@@ -6,11 +6,13 @@ import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { CarsComponent } from './cars.component';
+import {FillupsComponent} from "./fill-ups.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    CarsComponent
+    CarsComponent,
+    FillupsComponent
   ],
   imports: [
     BrowserModule,
