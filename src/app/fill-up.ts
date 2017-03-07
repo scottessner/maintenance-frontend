@@ -1,12 +1,11 @@
 export class FillUp {
-  odometer: number;
-  distance: number;
-  price: number;
-  quantity: number;
-  date: number;
-  carId: number;
-
-  // public economy() {
-  //   return this.distance/this.quantity;
-  // }
+  url: string;
+  id: number;
+  car: number;
+  odometer: string;
+  distance: string;
+  price: string;
+  quantity: string;
+  datetime: string;
+  economy: number;
 }

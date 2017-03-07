@@ -5,13 +5,15 @@
     <th>Price</th>
     <th>Quantity</th>
     <th>Date</th>
+    <th>Economy</th>
   </tr>
-  <tr *ngFor="let fillUp of fillUps">
+  <tr *ngFor="let fillUp of fillUps" (click)="onSelect(fillUp)">
     <td>{{fillUp.odometer}}</td>
     <td>{{fillUp.distance}}</td>
     <td>{{fillUp.price}}</td>
     <td>{{fillUp.quantity}}</td>
-    <td>{{fillUp.date | date:'longDate'}}</td>
-    <!--{{fillUp.economy()}}-->
+    <td>{{fillUp.datetime | date:'shortDate'}}</td>
+    <td>{{fillUp.economy | number:'1.1-3'}}</td>
   </tr>
 </table>
+<button (click)="gotoDetail()">Detail</button>

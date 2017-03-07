@@ -1,40 +1,32 @@
-import {Component} from '@angular/core';
-import {Car} from './car';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Car } from './car';
+import { CarService } from './cars.service';
 
 @Component({
+  moduleId: module.id,
   selector: 'cars',
   templateUrl: './cars.component.html',
   styleUrls: ['./cars.component.css']
 })
-export class CarsComponent {
-  cars: Car[] = CARS;
-  selectedCar: Car;
+export class CarsComponent implements OnInit {
+  cars: Car[];
 
-  onSelect(car: Car): void {
-    this.selectedCar = car;
+  constructor(
+    private carService: CarService,
+    private router: Router) {}
+
+  getCars(): void {
+    this.carService
+      .getCars()
+      .then(cars => this.cars = cars);
+  }
+
+  ngOnInit(): void {
+    this.getCars();
+  }
+
+  gotoDetail(car: Car): void {
+    this.router.navigate(['/cars', car.id]);
   }
 }
-
-const CARS: Car[] = [
-  {
-    id: 1,
-    make: 'Volkswagen',
-    model: 'Passat',
-    nickname: "Scott's Passat",
-    year: 2006
-  },
-  {
-    id: 2,
-    make: 'Acura',
-    model: 'MDX',
-    nickname: "Sarah's MDX",
-    year: 2015
-  },
-  {
-    id: 3,
-    make: 'Chevrolet',
-    model: 'C/10',
-    nickname: "Old Truck",
-    year: 1970
-  }
-];

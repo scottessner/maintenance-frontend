@@ -1,0 +1,16 @@
+<div *ngIf="fillup">
+  <h2>{{fillup.car}}</h2>
+  <div>
+    <label>id: </label>{{fillup.id}}
+  </div>
+  <div>
+    <label>odometer: </label>
+    <input [(ngModel)]="fillup.odometer" placeholder="odometer">
+  </div>
+  <div>
+    <label>quantity: </label>
+    <input [(ngModel)]="fillup.quantity" placeholder="odometer">
+  </div>
+  <button (click)="goBack()">Back</button>
+  <button (click)="save()">Save</button>
+</div>

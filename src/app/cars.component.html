@@ -1,12 +1,30 @@
-<md-card *ngFor="let car of cars" (click)="onSelect(car)">
-  <md-card-title>{{car.nickname}}</md-card-title>
-  <md-card-subtitle>{{car.year}} {{car.make}} {{car.model}}</md-card-subtitle>
-  <md-card-content>
-    <div *ngIf="selectedCar === car">
-      <h4>Recent Readings</h4>
-      <fill-ups></fill-ups>
-    </div>
-  </md-card-content>
+<div class="row">
+  <div class="col-md-4" *ngFor="let car of cars" (click)="gotoDetail(car)">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h2>{{car.nickname}}</h2>
+        <div class="row">
+          <div class="col-md-7">
+            <h5>{{car.year}} {{car.make}} {{car.model}}</h5>
+          </div>
+          <div class="col-md-5" *ngIf="car.last_updated">
+            <h6 class="text-right">Last Update</h6>
+            <h6 class="text-right">{{car.last_updated | date:shortDateTime }}</h6>
+          </div>
+        </div>
 
-  <md-card-actions></md-card-actions>
-</md-card>
+
+      </div>
+      <table class="table">
+        <tr *ngIf="car.average_economy > 0">
+          <td>Average Fuel Economy:</td>
+          <td>{{car.average_economy | number:'1.0-3'}} mi/gal</td>
+        </tr>
+        <tr>
+          <td>Most Recent Fuel Economy: </td>
+          <td>{{car.last_economy | number:'1.0-3'}} mi/gal</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
