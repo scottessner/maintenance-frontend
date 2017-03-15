@@ -28,7 +28,7 @@ export class CarsDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params
-      .switchMap((params: Params) => this.carService.getCar(+params['id']))
+      .switchMap((params: Params) =>this.carService.getCar(+params['id']))
       .subscribe(car => this.car = car);
     this.route.params
       .switchMap((params: Params) => this.fillUpService.getFillUps(+params['id']))

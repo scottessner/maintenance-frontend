@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
+import { environment } from '../environments/environment';
 
 import 'rxjs/add/operator/toPromise';
 import { FillUp } from './fill-up';
-import { Car } from './car';
 
 @Injectable()
 export class FillUpService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
-  private fillupsUrl = 'http://127.0.0.1:8000/fill-ups/';
+  private fillupsUrl = environment.apiUrl + 'fill-ups/';
 
   constructor(private http: Http){ }
 

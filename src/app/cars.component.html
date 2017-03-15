@@ -15,8 +15,8 @@
 
 
       </div>
-      <table class="table">
-        <tr *ngIf="car.average_economy > 0">
+      <table class="table" *ngIf="car.last_updated">
+        <tr>
           <td>Average Fuel Economy:</td>
           <td>{{car.average_economy | number:'1.0-3'}} mi/gal</td>
         </tr>

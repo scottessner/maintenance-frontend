@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
+import { environment } from '../environments/environment';
 
 import 'rxjs/add/operator/toPromise';
 import { Car } from './car';
@@ -8,7 +9,7 @@ import { Car } from './car';
 export class CarService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
-  private carsUrl = 'http://127.0.0.1:8000/cars/';
+  private carsUrl = environment.apiUrl + 'cars/';
 
   constructor(private http: Http){ }
 
